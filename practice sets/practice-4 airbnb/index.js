@@ -1,3 +1,6 @@
+// Core Modules
+const path = require('path');
+
 // External Module
 const express = require('express')
 
@@ -16,6 +19,7 @@ app.use(hostRouter)
 // to handle errors -> add 404
 app.use((req, res, next) => {
     res.status(404)
+    res.sendFile(path.join(__dirname, 'views', '404.html'))
 })
 
 const PORT = 3000;
