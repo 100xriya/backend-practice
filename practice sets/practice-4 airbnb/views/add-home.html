@@ -5,25 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add your house</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
 </head>
 
-<body>
-    <header>
-        <h1>Register your home</h1>
+<body class="justify-items-center">
+    <header class="bg-slate-100 rounded-lg shadow-lg shadow-slate-300  justify-items-center p-13 w-full">
+        <h1 class="text-5xl font-extrabold  text-red-400">Register your home</h1>
     </header>
-    <main>
-        <form action="/add-home" method="POST">
-            <label for="houseName">House Name:</label>
-            <input type="text" name=houseName placeholder="Enter the name of your house" /><br>
+    <main
+        class="bg-slate-100 h-[60vh] p-7 w-[60vw]  flex justify-center items-center m-10 rounded-lg shadow-lg shadow-slate-300 ">
+        <form action="/add-home" method="POST"
+            class="w-[50vw] bg-rose-50 flex flex-col items-center rounded-lg shadow-lg shadow-slate-300  p-6">
+            <div class="flex gap-3 p-4">
+                <label for="houseName">House Name: </label>
+                <input type="text" name=houseName placeholder="Enter the name of your house" class="focus:border-red-500 focus:text-red-500
+                    focus:outline focus:outline-red-500 rounded-md w-full text-center" /><br>
+            </div>
 
-            <label for="address">Address</label>
-            <input type="text" name="address" placeholder="Write your address"><br>
+            <div class="flex gap-3 m-2 p-4">
+
+                <label for="address">Address</label>
+                <input type="text" name="address" placeholder="Write your address " class="focus:border-red-500 focus:text-red-500
+                    focus:outline focus:outline-red-500 rounded-md text-center w-full"><br>
+            </div>
 
             <label for="water">Water Availability:</label>
-            <input type="radio" name="water" id="yes">Yes
-            <input type="radio" name="water" id="no">No
+            <div class="p-2">
 
-            <input type="submit" value="submit" />
+                <input type="radio" name="water" id="yes">Yes
+                <input type="radio" name="water" id="no">No
+            </div>
+            <input type="submit" value="submit" class="m-6 bg-red-500 rounded-sm text-white w-20 p-2" />
         </form>
     </main>
 </body>
