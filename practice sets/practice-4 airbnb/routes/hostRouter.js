@@ -10,10 +10,16 @@ hostRouter.get("/add-home", (req, res, next) => {
     res.sendFile(path.join(__dirname, '../', 'views', 'add-home.html'))
 })
 
+const registeredHomes = [];
+
 hostRouter.post("/add-home", (req, res, next) => {
-    console.log(req.body);
+    console.log(`Home registration successful for:`, req.body, req.body.houseName);
+    registeredHomes.push({ houseName: req.body.houseName });
+    // console.log(registeredHomes);
 
     res.sendFile(path.join(__dirname, '../', 'views', 'homeAdded.html'))
 })
 
-module.exports = hostRouter;
+// module.exports = hostRouter;
+exports.hostRouter = hostRouter;
+exports.registeredHomes = registeredHomes;

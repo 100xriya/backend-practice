@@ -6,9 +6,14 @@ const express = require('express')
 
 // Local Module
 const userRouter = require('./routes/userRouter');
-const hostRouter = require('./routes/hostRouter');
+const { hostRouter } = require('./routes/hostRouter');
 
 const app = express();
+
+//to render a view, use EJS to generate the HTML
+app.set('view engine', 'ejs');
+// Look for my EJS files inside the views folder.
+app.set('views', 'views');
 
 // body parser
 app.use(express.urlencoded())
