@@ -15,8 +15,8 @@
         <p class="text-slate-400 pt-3 font-medium">Visit your staycation dream</p>
     </header>
     <main class="text-center">
-        <% if (registeredHomes.length> 0 ) {%>
-            <div>
+
+        <!-- <div>
                 <h1 class="p-9 font-bold text-red-400 text-2xl ">
                     Explore through options:
                 </h1>
@@ -30,10 +30,44 @@
 
                         <% }) %>
                 </ul>
+            </div> -->
+        <% if (registeredHomes.length> 0 ) {%>
+            <div id="outer-container"
+                class="bg-rose-50 m-10 p-4 w-[60vw]  grid grid-rows-2 grid-cols-2 gap-4 justify-center items-center  rounded-lg shadow-lg shadow-slate-300 ">
+                <% registeredHomes.forEach(home=> { %>
+                    <div
+                        class="card bg-slate-100 p-5 rounded-lg hover:bg-slate-200 text-left capitalize shadow-md shadow-slate-400  ">
+                        <div class="rounded-lg">
+                            <img src=" <%=home.image %> ">
+
+                        </div>
+                        <div id="card-text" class="">
+                            <h2 class="font-extrabold text-xl text-slate-600">
+                                <%= home.houseName%>
+                            </h2>
+                            <p class="text-slate-800">
+                                <b>Rating:</b>
+                                <%= home.rating%>
+                            </p>
+                            <p>
+                                <strong>Location:</strong>
+                                <%= home.location%>
+                            </p>
+                            <p class="">
+                                <strong> Cost:</strong> Cost: $<%= home.price%> / night
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <% }) %>
             </div>
-            <%}%>
+
+            <% } %>
+
                 <div class="w-full h-full mt-20 ">
-                    <a href="/add-home" class="bg-red-400 px-8 py-3 text-white font-semibold rounded-md ">Add Home</a>
+                    <a href="/add-home" class="bg-red-400 px-8 py-3 text-white font-semibold rounded-md ">Add
+                        Home</a>
                 </div>
     </main>
 </body>
