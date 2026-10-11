@@ -24,11 +24,12 @@ exports.postAddHome = (req, res, next) => {
 }
 
 exports.getHome = (req, res, next) => {
-    const registeredHomes = Home.fetchAll();
+    const registeredHomes = Home.fetchAll((registeredHomes) => {
+        res.render('home', { registeredHomes: registeredHomes })
+    });
     console.log(`array:`, registeredHomes);
 
     console.log(req.url, req.method);
-    res.render('home', { registeredHomes: registeredHomes })
 }
 
 exports.error = (req, res, next) => {
