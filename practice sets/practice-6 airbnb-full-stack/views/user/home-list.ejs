@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home added</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+
+<body class="justify-items-center">
+    <header class="bg-slate-100 rounded-md shadow-lg shadow-slate-300  justify-items-center p-10 w-full">
+        <h1 class="text-5xl font-extrabold  text-red-400">Welcome to airbnb</h1>
+        <p class="text-slate-400 pt-3 font-medium">Visit your staycation dream</p>
+    </header>
+    <main class="text-center">
+        <nav
+            class="bg-red-400 rounded-lg shadow-md shadow-red-500 text-white font-semibold p-4  w-full justify-around flex ">
+            <a href="/user/favourite-list">Favourites</a>
+            <a href="/user/bookings">Bookings</a>
+        </nav>
+
+
+        <% if (registeredHomes.length> 0 ) {%>
+            <div id="outer-container"
+                class="bg-rose-50 m-10 p-4 w-[60vw]  grid grid-cols-3 gap-4 justify-center items-center  rounded-lg shadow-lg shadow-slate-300 ">
+                <% registeredHomes.forEach(home=> { %>
+                    <div
+                        class="card bg-slate-100 p-5 rounded-lg hover:bg-slate-200 flex flex-col items-start  capitalize shadow-md shadow-slate-400  ">
+                        <div class="rounded-lg">
+                            <img src=" <%=home.image %> ">
+
+                        </div>
+                        <div id="card-text" class="">
+                            <h2 class="font-extrabold text-xl text-slate-600 place-self-start">
+                                <%= home.houseName%>
+                            </h2>
+                            <p class="text-slate-800 place-self-start">
+                                <b>Rating:</b>
+                                <%= home.rating%>
+                            </p>
+                            <p class="place-self-start">
+                                <strong>Location:</strong>
+                                <%= home.location%>
+                            </p>
+                            <p class="">
+                                <strong> Cost:</strong> Cost: $<%= home.price%> / night
+                            </p>
+
+                        </div>
+
+                        <div class="flex justify-between w-full mt-5">
+
+                            <button type="button"
+                                class=" bg-emerald-400 text-white font-bold px-3 py-2 rounded-lg self-center hover:bg-emerald-600 mt-5">Details</button>
+                            <button type="button"
+                                class=" bg-blue-500 text-white font-bold px-3 py-2 rounded-lg self-center hover:bg-blue-600 mt-5">Book
+                                it!</button>
+                        </div>
+                    </div>
+
+                    <% }) %>
+            </div>
+
+            <% } %>
+
+                <div class="w-full h-full mt-20 ">
+                    <a href="/add-home" class="bg-red-400 px-8 py-3 text-white font-semibold rounded-md ">Add
+                        Home</a>
+                </div>
+    </main>
+</body>
+
+</html>

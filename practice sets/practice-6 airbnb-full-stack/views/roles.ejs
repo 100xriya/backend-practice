@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to airbnb!</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+
+<body>
+    <header class="bg-slate-100 rounded-md shadow-lg shadow-slate-300  justify-items-center p-10 w-full">
+        <h1 class="text-5xl font-extrabold  text-red-400">Welcome to airbnb</h1>
+        <p class="text-slate-400 pt-3 font-medium">Visit your staycation dream</p>
+    </header>
+
+    <main>
+        <div class="justify-items-center">
+            <img src="https://images.pexels.com/photos/26859033/pexels-photo-26859033.jpeg"
+                class="w-[50vw] h-auto rounded-md m-5 object-cover shadow-md shadow-slate-400">
+            <p class="text-red-500 font-medium text-lg ">
+                YOUR NEXT CHAPTER STARTS HERE
+            </p>
+        </div>
+        <div class="flex place-content-center p-10">
+            <!-- Guest Card -->
+            <div
+                class="p-6 m-3 border-2 shadow-lg shadow-slate-300 border-slate-200 rounded-lg text-left w-130 bg-slate-50">
+                <h1 class="text-2xl mb-2">I'm here to explore</h1>
+
+                <p class="text-lg">
+                    Discover stays worth travelling for and find your next escape.
+                </p>
+
+                <a href="/"
+                    class="block w-full box-border bg-red-500 text-center p-3 mt-5 rounded-md hover:bg-red-600 hover:cursor-pointer font-semibold text-white text-lg">
+                    Continue as Guest →
+                </a>
+            </div>
+
+
+            <!-- Host Card -->
+            <div
+                class="p-6 m-3 border-2 shadow-lg shadow-slate-300 border-slate-200 rounded-lg text-left w-130 bg-slate-50">
+                <h1 class="text-2xl mb-2">I have a place to share</h1>
+
+                <p class="text-lg">
+                    Welcome travellers, showcase your space, and create memorable stays.
+                </p>
+
+                <a href="/add-home"
+                    class="block w-full box-border bg-red-500 text-center p-3 mt-5 rounded-md hover:bg-red-600 hover:cursor-pointer font-semibold text-white text-lg">
+                    Continue as Host →
+                </a>
+            </div>
+        </div>
+        </div>
+
+    </main>
+</body>
+
+</html>

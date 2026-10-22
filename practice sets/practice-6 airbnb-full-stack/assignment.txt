@@ -1,0 +1,15 @@
+1. Structure the views folder into admin & store and move the respective view files there.
+
+2. Add more views to store like: home-list, home-detail, favourite-list, reserve, bookings. And to admin view:
+edit-home, admin-home-list
+
+3. Improve the header with navigation to all pages.
+
+4. Register all the new routes and add dummy views there.
+
+5. Change controllers to store and admin setup.
+
+6. Add Edit and Delete buttons to the admin-home-list view.
+
+7. Keep the logic for Edit, Delete, Favourite pending.
+
