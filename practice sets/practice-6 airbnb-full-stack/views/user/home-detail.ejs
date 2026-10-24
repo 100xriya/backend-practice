@@ -15,32 +15,35 @@
     </header>
     <main class="">
         <nav
-            class="bg-red-400 rounded-lg shadow-md shadow-red-500 text-white font-semibold p-4  w-[60vw] flex justify-evenly">
+            class="bg-red-400 rounded-lg shadow-md shadow-red-500 text-white font-semibold p-4  w-[50vw] flex justify-evenly">
             <a href="/">Home</a>
             <a href="/user/favourite-list">Favourites</a>
             <a href="/user/bookings">Bookings</a>
         </nav>
 
         <div
-            class="card bg-slate-100 p-5 rounded-lg hover:bg-slate-200 flex flex-col items-start  capitalize shadow-md shadow-slate-400  ">
+            class="card bg-slate-100 p-5 rounded-lg hover:bg-slate-200 flex flex-col place-self-center items-start w-1/2 my-8  capitalize shadow-md shadow-slate-400  ">
             <div class="rounded-lg">
-                <img src="">
+                <img src=" <%=home.image %> ">
 
             </div>
             <div id="card-text" class="">
                 <h2 class="font-extrabold text-xl text-slate-600 place-self-start">
-                    housename </h2>
+                    <%= home.houseName%>
+                </h2>
                 <p class="text-slate-800 place-self-start">
                     <b>Rating:</b>
+                    <%= home.rating%>
                 </p>
                 <p class="place-self-start">
                     <strong>Location:</strong>
+                    <%= home.location%>
                 </p>
                 <p class="">
-                    <strong> Cost:</strong> Cost: $ / night
+                    <strong> Cost:</strong> Cost: $<%= home.price%> / night
                 </p>
                 <button type="button"
-                    class=" bg-blue-500 text-white font-bold px-3 py-2 rounded-lg self-center hover:bg-blue-600 mt-5">Book
+                    class=" bg-blue-500 text-white font-bold px-3 py-2 rounded-lg hover:bg-blue-600 mt-5">Book
                     it!</button>
             </div>
     </main>

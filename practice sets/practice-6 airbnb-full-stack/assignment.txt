@@ -24,3 +24,16 @@ edit-home, admin-home-list
 4. Add a route in the store router for /homes/:home-id
 
 5. Add a method in store controller to get the home-id using req.params and log it, before sending out a dummy response with home
+
+<------------------- Showing Real Home Data----------------->
+
+. Add a static findByld method in Home model that takes a callback.
+. Use this findByld method in the controller to load home details and log
+them.
+. Now change the controller:
+a. Redirect to /homes in case the home is not found, logging an error.
+b. Rendering the /home-detail page with home data.
+4. Create a home-detail page to use the entire page to show a
+5. Download from Github:
+a. The styled home-detail file.
+b. 10 image of homes that you can put locally and use
