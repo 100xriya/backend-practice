@@ -13,3 +13,14 @@ edit-home, admin-home-list
 
 7. Keep the logic for Edit, Delete, Favourite pending.
 
+<--------Adding Home Details Page-------------->
+
+1. Add a details button in /homes-list to go to link path /homes/:home-id
+
+2. Add a random id to each home in the data file.
+
+3. Add a random id on home object before saving in the home model.
+
+4. Add a route in the store router for /homes/:home-id
+
+5. Add a method in store controller to get the home-id using req.params and log it, before sending out a dummy response with home

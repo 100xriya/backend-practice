@@ -6,6 +6,7 @@ const getUserController = require('../controller/userController')
 userRouter.get("/", getUserController.getHome)
 userRouter.get("/user/bookings", getUserController.getBookings)
 userRouter.get("/user/favourite-list", getUserController.getFavList)
-userRouter.get("/user/home-details", getUserController.getHomeDetails)
+userRouter.get("/homes/:homeId", getUserController.getHomeDetails)
+
 
 exports.userRouter = userRouter;

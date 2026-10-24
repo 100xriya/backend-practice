@@ -1,6 +1,7 @@
 const path = require('path');
 const Home = require('../models/home')
 
+// display the homes in host-home-list
 exports.getHomeList = (req, res, next) => {
     Home.fetchAll((registeredHomes) => {
         console.log(registeredHomes);
@@ -10,11 +11,14 @@ exports.getHomeList = (req, res, next) => {
         });
     });
 }
+
+// display the form
 exports.getAddHome = (req, res, next) => {
     console.log(req.url, req.method);
     res.sendFile(path.join(__dirname, '../', 'views', 'host', 'add-home.html'))
 }
 
+// return the submitted form response
 exports.postAddHome = (req, res, next) => {
     console.log(`Home registration successful for:`, req.body, req.body.houseName);
     const { houseName, price, location, rating, image } = req.body;

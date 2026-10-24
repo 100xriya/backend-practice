@@ -14,6 +14,7 @@ module.exports = class Home {
 
     // short syntax of fn inside constructor fn
     save() {
+        this.id = Math.floor(Math.random().toString());
         const homeDataPath = path.join(rootDir, 'data', 'homes.json');
 
         Home.fetchAll((registeredHomes) => {

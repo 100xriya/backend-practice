@@ -16,7 +16,9 @@ exports.getFavList = (req, res, next) => {
 }
 
 exports.getHomeDetails = (req, res, next) => {
-    res.render('user/home-detail')
+    const homeId = req.params.homeId;
+    console.log(`homeId of chosen house: ${homeId}`);
+    res.render('user/home-detail');
 }
 
 exports.getBookings = (req, res, next) => {
