@@ -15,7 +15,7 @@ exports.getHomeList = (req, res, next) => {
 // display the form
 exports.getAddHome = (req, res, next) => {
     console.log(req.url, req.method);
-    res.sendFile(path.join(__dirname, '../', 'views', 'host', 'add-home.html'))
+    res.sendFile(path.join(__dirname, '../', 'views', 'host', 'edit-home.ejs'))
 }
 
 // return the submitted form response
@@ -44,7 +44,13 @@ exports.error = (req, res, next) => {
 }
 
 exports.getEditHome = (req, res, next) => {
-    res.render('host/edit-home')
+    const homeId = req.params.homeId;
+    const editing = req.query.editing === "true";
+    console.log(homeId, editing);
+    res.render('host/edit-home', {
+        editing: editing,
+        homeId: homeId,
+    })
 }
 
 exports.postEditHome = (req, res, next) => {

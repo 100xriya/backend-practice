@@ -8,8 +8,8 @@ const hostRouter = express.Router();    //creates a router
 hostRouter.get("/host/host-home-list", addHostController.getHomeList)
 hostRouter.get("/add-home", addHostController.getAddHome)
 hostRouter.post("/add-home", addHostController.postAddHome)
-hostRouter.get("/host/edit-home", addHostController.getEditHome)
-hostRouter.post("host/edit-home", addHostController.postEditHome)
+hostRouter.get("/host/edit-home/:homeId", addHostController.getEditHome)
+// hostRouter.post("host/edit-home", addHostController.postEditHome)
 
 
 // module.exports = hostRouter;

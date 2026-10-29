@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add your house</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+
+<body class="justify-items-center">
+    <header class="bg-slate-100 rounded-lg shadow-lg shadow-slate-300  justify-items-center p-13 w-full">
+        <h1 class="text-5xl font-extrabold  text-red-400">Register your home</h1>
+    </header>
+    <main
+        class="bg-rose-50  p-7 w-[60vw]  flex justify-center items-center m-10 rounded-lg shadow-lg shadow-slate-300 ">
+        <form action="/add-home" method="POST"
+            class="w-full space-y-2 bg-slate-50 flex flex-col items-center rounded-lg shadow-lg shadow-slate-300  p-6">
+
+            <div id="houseName" class="grid grid-cols-[120px_1fr] items-center gap-4 w-full">
+                <label for="houseName">House Name: </label>
+                <input type="text" name=houseName placeholder="Enter the name of your house" class="focus:border-red-500 focus:text-red-500
+                    focus:outline-none focus:ring-2 focus:ring-red-500 rounded-md w-full text-center p-3" /><br>
+            </div>
+
+            <div id="price" class="grid grid-cols-[120px_1fr] items-center gap-4 w-full">
+
+                <label for="price">Price per night:</label>
+                <input type="number" name="price" placeholder="Price in dollars " class="focus:border-red-500 focus:text-red-500
+                    focus:outline-none focus:ring-2 focus:ring-red-500 rounded-md text-center w-full p-3"><br>
+            </div>
+
+            <div id="image" class="grid grid-cols-[120px_1fr] items-center gap-4 w-full">
+
+                <label for="image">Image:</label>
+                <input type="url" name="image" placeholder="Upload link of the picture" class="focus:border-red-500 focus:text-red-500
+                    focus:outline-none focus:ring-2 focus:ring-red-500 rounded-md text-center w-full p-3"><br>
+            </div>
+
+            <div id="location" class="grid grid-cols-[120px_1fr] items-center gap-4 w-full">
+
+                <label for="location">Location:</label>
+                <input type="text" name="location" placeholder="Write your address " class="focus:border-red-500 focus:text-red-500
+                    focus:outline-none focus:ring-2 focus:ring-red-500 rounded-md text-center w-full p-3"><br>
+            </div>
+
+            <div id="rating" class="grid grid-cols-[120px_1fr] items-center gap-4 w-full">
+
+                <label for="rating">Rating:</label>
+
+                <div class="flex flex-col gap-2">
+
+                    <label class="flex items-center gap-2">
+                        <input type="radio" name="rating" value="⭐">
+                        ⭐
+                    </label>
+
+                    <label class="flex items-center gap-2">
+                        <input type="radio" name="rating" value="⭐⭐">
+                        ⭐⭐
+                    </label>
+
+                    <label class="flex items-center gap-2">
+                        <input type="radio" name="rating" value="⭐⭐⭐">
+                        ⭐⭐⭐
+                    </label>
+
+                    <label class="flex items-center gap-2">
+                        <input type="radio" name="rating" value="⭐⭐⭐⭐">
+                        ⭐⭐⭐⭐
+                    </label>
+
+                    <label class="flex items-center gap-2">
+                        <input type="radio" name="rating" value="⭐⭐⭐⭐⭐">
+                        ⭐⭐⭐⭐⭐
+                    </label>
+
+                </div>
+            </div>
+            <!--   <div id="rating" class="grid grid-cols-[120px_1fr] items-center gap-4 w-full">
+
+                <label for="rating">Rating:</label>
+                <div class="p-2 flex flex-col">
+
+                    <input type="radio" name="rating" id="1" class="flex flex-row p-3"> &#11088;
+                    <input type="radio" name="rating" id="2" class="flex items-center gap-2"> &#11088; &#11088;
+                    <input type="radio" name="rating" id="3" class="flex flex-row p-3"> &#11088; &#11088;&#11088;
+                    <input type="radio" name="rating" id="4" class="flex flex-row p-3"> &#11088;&#11088;&#11088;&#11088;
+                    <input type="radio" name="rating" id="5" class="flex  p-3">
+                    &#11088;&#11088;&#11088;&#11088;&#11088;
+                </div>
+            </div> -->
+
+            <input type="submit" value="submit" class="mt-6 w-3/4 rounded-md bg-red-500 py-3
+       font-semibold text-white uppercase
+       hover:bg-red-600 transition" />
+        </form>
+    </main>
+</body>
+
+</html>

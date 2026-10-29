@@ -48,7 +48,9 @@ exports.getFavList = (req, res, next) => {
         // method 2 -using map
         /*  Home.fetchAll((registeredHomes) => {
              const favouriteHomes = favourites.map(homeId => registeredHomes.find(home => home.id === homeId));
-             res.render('user/favourites')
+             res.render('user/favourites', {
+                favouriteHomes: favouriteHomes
+            })
          }) */
     })
 }
