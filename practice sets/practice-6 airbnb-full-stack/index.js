@@ -33,6 +33,16 @@ app.get('/roles', (req, res) => {
 app.use(errorController.error)
 
 const PORT = 3000;
-app.listen(PORT, () => {
+
+console.log('Before app.listen');
+
+const server = app.listen(PORT, () => {
     console.log(`server running on address- http://localhost:${PORT}/roles`);
+    console.log('Is server listening?', server.listening);
 })
+
+console.log('After app.listen');
+
+server.on('close', () => {
+    console.log('SERVER CLOSED');
+});

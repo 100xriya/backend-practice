@@ -17,8 +17,8 @@
         <nav
             class="bg-red-400 rounded-lg shadow-md shadow-red-500 text-white font-semibold p-4  w-[50vw] flex justify-evenly">
             <a href="/">Home</a>
-            <a href="/user/favourite-list">Favourites</a>
-            <a href="/user/bookings">Bookings</a>
+            <a href="../user/favourites">Favourites</a>
+            <a href="../user/bookings">Bookings</a>
         </nav>
 
         <div
@@ -45,6 +45,14 @@
                 <button type="button"
                     class=" bg-blue-500 text-white font-bold px-3 py-2 rounded-lg hover:bg-blue-600 mt-5">Book
                     it!</button>
+                <div>
+                    <form action="../user/favourites" method="post">
+                        <button class="bg-purple-400 p-2 mt-2 hover:bg-purple-600 text-white rounded-lg font-bold">Add
+                            to
+                            Favourites</button>
+                        <input type="hidden" name="id" value="<%= home.id %>">
+                    </form>
+                </div>
             </div>
     </main>
 </body>

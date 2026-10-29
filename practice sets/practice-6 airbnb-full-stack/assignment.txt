@@ -37,3 +37,24 @@ b. Rendering the /home-detail page with home data.
 5. Download from Github:
 a. The styled home-detail file.
 b. 10 image of homes that you can put locally and use
+
+
+<------------14.4 Adding Favourites Feature ------------------>
+
+1. Create a partial with a form and a button that submits to /favourites path
+with a hidden input having home-id value.
+2. Add this partial to home-detail page
+3. Add this partial to home-list page.
+4. Add router for handling POST request to /favourites path.
+5. Add a method in store controller to add a home id as favourites, logging
+the id for now, before redirecting to /favourites path.
+
+
+14.5 Adding Favourites Model
+
+1. Create a new Model to handle Favourites:
+    a. A static method getFavourites that reads the favourites. json file and return the ids of all homes marked favourite.
+    b. A static method addFavourites that adds the home-id to favourites-idarray if not already there, then updates the file.
+2. Use this model in addFavourites controller.
+3. Use this model in getFavourites controller while also fetching all homes from Homes Model.
+4. Change the UI of favourites page to show new content.

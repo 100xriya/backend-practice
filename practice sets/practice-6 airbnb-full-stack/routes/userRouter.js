@@ -5,7 +5,8 @@ const getUserController = require('../controller/userController')
 
 userRouter.get("/", getUserController.getHome)
 userRouter.get("/user/bookings", getUserController.getBookings)
-userRouter.get("/user/favourite-list", getUserController.getFavList)
+userRouter.get("/user/favourites", getUserController.getFavList)
+userRouter.post("/user/favourites", getUserController.postFavList)
 userRouter.get("/homes/:homeId", getUserController.getHomeDetails)
 
 

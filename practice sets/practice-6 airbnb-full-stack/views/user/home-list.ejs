@@ -17,7 +17,7 @@
     <main class="text-center">
         <nav
             class="bg-red-400 rounded-lg shadow-md shadow-red-500 text-white font-semibold p-4  w-full justify-around flex ">
-            <a href="/user/favourite-list">Favourites</a>
+            <a href="user/favourites">Favourites</a>
             <a href="/user/bookings">Bookings</a>
         </nav>
 
@@ -57,6 +57,13 @@
                             <button type="button"
                                 class=" bg-blue-500 text-white font-bold px-3 py-2 rounded-lg self-center hover:bg-blue-600 mt-5">Book
                                 it!</button>
+                            <form action="user/favourites" method="post">
+                                <button
+                                    class=" bg-purple-400 px-3 py-2 mt-5 hover:bg-purple-600 text-white rounded-lg font-bold">Add
+                                    to
+                                    Favourites</button>
+                                <input type="hidden" name="id" value="<%= home.id %>">
+                            </form>
                         </div>
                     </div>
 
