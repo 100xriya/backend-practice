@@ -29,5 +29,15 @@ module.exports = class Favourite {
         })
     }
 
+    static deleteFavs(homeId, callback) {
+        Favourite.getFavourites(favourites => {
+            const updatedFavsList = favourites.filter(
+                favourite => favourite !== homeId
+            )
+
+            fs.writeFile(favouriteDataPath, JSON.stringify(updatedFavsList), callback);
+        })
+
+    }
 }
 

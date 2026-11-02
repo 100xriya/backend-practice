@@ -63,7 +63,21 @@ exports.postFavList = (req, res, next) => {
     });
 }
 
+// Remove Home from favs-list
+exports.postRemoveFavourite = (req, res, next) => {
+    const homeId = req.params.homeId;
+
+    Favourite.deleteFavs(homeId, (error) => {
+        if (error) {
+            return next(error);
+        }
+        res.redirect('/user/favourites')
+
+    })
+}
+
 // Bookings features
 exports.getBookings = (req, res, next) => {
     res.render('user/bookings')
 }
+

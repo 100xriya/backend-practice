@@ -24,7 +24,7 @@
                 class="bg-rose-50 mt-10 p-4 w-[60vw]  grid grid-cols-3 gap-4 justify-center items-center  rounded-lg shadow-lg shadow-slate-300 ">
                 <% favouriteHomes.forEach(home=> { %>
                     <div
-                        class="card bg-slate-100 p-5 rounded-lg hover:bg-slate-200 flex flex-col items-start  capitalize shadow-md shadow-slate-400  ">
+                        class="card bg-slate-100 p-5 rounded-lg hover:bg-slate-200 flex flex-col items-start  shadow-md shadow-slate-400  ">
                         <div class="rounded-lg">
                             <img src=" <%=home.image %> ">
 
@@ -54,8 +54,14 @@
                             <button type="button"
                                 class=" bg-blue-500 text-white font-bold px-3 py-2 rounded-lg self-center hover:bg-blue-600 mt-5">Book
                                 it!</button>
-
                         </div>
+                        <form action="/user/favourites/delete-favs/<%= home.id %>" method="post"
+                            class="w-full place-content-center">
+                            <button type="submit"
+                                class="bg-red-500 text-white font-bold px-3 py-2 rounded-lg hover:bg-red-600 mt-5">Remove
+                                from favourites</button>
+
+                        </form>
                     </div>
 
                     <% }) %>
