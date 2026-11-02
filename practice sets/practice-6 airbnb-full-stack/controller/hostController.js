@@ -36,7 +36,7 @@ exports.postAddHome = (req, res, next) => {
          rating: req.body.rating
      }); */
     // console.log(registeredHomes);
-    res.redirect('host/host-home-list');
+    res.redirect('/host/host-home-list');
 
 }
 
