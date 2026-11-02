@@ -1,6 +1,7 @@
 const path = require('path');
 const Home = require('../models/home');
 const Favourite = require('../models/favourite');
+const Bookings = require('../models/bookings');
 // const { error } = require('console');
 
 // Home list features
@@ -76,8 +77,42 @@ exports.postRemoveFavourite = (req, res, next) => {
     })
 }
 
+
+
+// -------------------------------------------------------------
 // Bookings features
-exports.getBookings = (req, res, next) => {
-    res.render('user/bookings')
+exports.getBookingList = (req, res, next) => {
+    Bookings.getBookings((bookings) => {
+
+        Home.fetchAll((registeredHomes) => {
+
+            const bookedHomes = registeredHomes.filter(home => bookings.includes(String(home.id)));
+            res.render('user/bookings', {
+                bookedHomes: bookedHomes
+            });
+        })
+
+    })
+}
+exports.postBookingList = (req, res, next) => {
+    Bookings.addToBookings(req.body.homeId, error => {
+        if (error) {
+            console.log("Error while booking:", error);
+        }
+        res.redirect('/user/bookings')
+    });
+}
+
+// Remove Home from bookings
+exports.postRemoveBookings = (req, res, next) => {
+    const homeId = req.params.homeId;
+
+    Bookings.deleteBookings(homeId, (error) => {
+        if (error) {
+            return next(error);
+        }
+        res.redirect('/user/bookings')
+
+    })
 }
 

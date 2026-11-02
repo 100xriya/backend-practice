@@ -30,7 +30,7 @@
 
                         </div>
                         <div id="card-text" class="">
-                            <h2 class="font-extrabold text-xl text-slate-600 place-self-start">
+                            <h2 class="font-extrabold text-xl capitalize text-slate-600 place-self-start">
                                 <%= home.houseName%>
                             </h2>
                             <p class="text-slate-800 place-self-start">
@@ -42,7 +42,7 @@
                                 <%= home.location%>
                             </p>
                             <p class="">
-                                <strong> Cost:</strong> Cost: $<%= home.price%> / night
+                                <strong> Cost:</strong> $<%= home.price%> / night
                             </p>
 
                         </div>
@@ -51,9 +51,15 @@
 
                             <a href="/homes/<%= home.id %>"
                                 class=" bg-emerald-400 text-white font-bold px-3 py-2 rounded-lg self-center hover:bg-emerald-600 mt-5">Details</a>
-                            <button type="button"
-                                class=" bg-blue-500 text-white font-bold px-3 py-2 rounded-lg self-center hover:bg-blue-600 mt-5">Book
-                                it!</button>
+                            <form action="/user/bookings" method="POST">
+                                <input type="hidden" name="homeId" value="<%= home.id %>" />
+
+
+                                <button type="submit"
+                                    class=" bg-blue-500 text-white font-bold px-3 py-2 rounded-lg self-center hover:bg-blue-600 mt-5">Book
+                                    it!</button>
+                            </form>
+
                         </div>
                         <form action="/user/favourites/delete-favs/<%= home.id %>" method="post"
                             class="w-full place-content-center">
