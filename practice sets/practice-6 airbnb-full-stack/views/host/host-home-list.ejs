@@ -16,7 +16,7 @@
     </header>
     <main class="text-center">
         <nav class="bg-red-400 text-white font-semibold p-4  w-full justify-between flex rounded-sm">
-            <a href="/user/favourite-list">Favourites</a>
+            <a href="../user/favourites">Favourites</a>
             <a href="/user/bookings">Bookings</a>
             <a href="/add-home">Add a new home</a>
 
@@ -55,8 +55,12 @@
 
                             <a href="../host/edit-home/<%= home.id%>?editing=true"
                                 class="bg-green-500 text-white font-bold px-5 py-2 rounded-lg hover:bg-green-600 mt-5 ">Edit</a>
-                            <a href=""
-                                class="bg-red-500 text-white font-bold px-3 py-2 rounded-lg hover:bg-red-600 mt-5">Delete</a>
+                            <!-- why create form for delete not for edit? bcz whenever u need to change the dataset ,  u make post request, a tag= make usually get request -->
+                            <form action="/host/delete-home/<%= home.id %>" method="post">
+                                <button type="submit"
+                                    class="bg-red-500 text-white font-bold px-3 py-2 rounded-lg hover:bg-red-600 mt-5">Delete</button>
+
+                            </form>
                         </div>
                     </div>
 
