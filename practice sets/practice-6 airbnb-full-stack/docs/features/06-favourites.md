@@ -496,16 +496,12 @@ For example:
 
 ```js
 // homes.json
-{
-  "id": 0.3
-}
+{"id": 0.3}
 ```
 
 ```js
 // favourite.json
-[
-  "0.3"
-]
+["0.3"]
 ```
 
 The comparison failed because one value was a number and the other was a string.
@@ -530,19 +526,21 @@ The controller must wait for the `fs.writeFile()` callback before redirecting.
 
 Otherwise, the browser could navigate away before the data operation finishes.
 
-### D. Keep complete home records separate from favourite IDs
-
-The favourites file should store references to properties, not duplicate property objects.
-
-This keeps the data structure simpler and avoids having to update the same property information in multiple places.
-
-### E. Deleting a home can leave a stale favourite ID
+### D. Deleting a home can leave a stale favourite ID
 
 When a home is deleted from `homes.json`, its ID can still remain in `favourite.json`.
 
 The Favourites controller won't find a corresponding home to display, but the stale ID remains stored.
 
 This relationship needs to be handled when implementing or improving Delete Home.
+
+### E. Keep complete home records separate from favourite IDs
+
+The favourites file should store references to properties, not duplicate property objects.
+
+This keeps the data structure simpler and avoids having to update the same property information in multiple places.
+
+
 
 ## 8. Current Limitations and Future Improvements
 
