@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Details</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+
+<body class="justify-items-center">
+    <header class="bg-slate-100 rounded-md shadow-lg shadow-slate-300  justify-items-center p-10 w-full">
+        <h1 class="text-5xl font-extrabold  text-red-400">Home Details</h1>
+    </header>
+    <main class="">
+        <nav
+            class="bg-red-400 rounded-lg shadow-md shadow-red-500 text-white font-semibold p-4  w-[50vw] flex justify-evenly">
+            <a href="/">Home</a>
+            <a href="../user/favourites">Favourites</a>
+            <a href="../user/bookings">Bookings</a>
+        </nav>
+
+        <div
+            class="card bg-slate-100 p-5 rounded-lg hover:bg-slate-200 flex flex-col place-self-center items-start w-1/2 my-8  capitalize shadow-md shadow-slate-400  ">
+            <div class="rounded-lg">
+                <img src=" <%=home.image %> ">
+
+            </div>
+            <div id="card-text" class="">
+                <h2 class="font-extrabold text-xl text-slate-600 place-self-start">
+                    <%= home.houseName%>
+                </h2>
+                <p class="text-slate-800 place-self-start">
+                    <b>Rating:</b>
+                    <%= home.rating%>
+                </p>
+                <p class="place-self-start">
+                    <strong>Location:</strong>
+                    <%= home.location%>
+                </p>
+                <p class="">
+                    <strong> Cost:</strong> Cost: $<%= home.price%> / night
+                </p>
+                <form action="/user/bookings" method="POST">
+                    <input type="hidden" name="homeId" value="<%= home.id %>" />
+
+
+                    <button type="submit"
+                        class=" bg-blue-500 text-white font-bold px-3 py-2 rounded-lg self-center hover:bg-blue-600 mt-5">Book
+                        it!</button>
+                </form>
+                <div>
+                    <form action="../user/favourites" method="post">
+                        <button class="bg-purple-400 p-2 mt-2 hover:bg-purple-600 text-white rounded-lg font-bold">Add
+                            to
+                            Favourites</button>
+                        <input type="hidden" name="id" value="<%= home.id %>">
+                    </form>
+                </div>
+            </div>
+    </main>
+</body>
+
+</html>
