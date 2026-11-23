@@ -11,6 +11,31 @@ module.exports = class Home {
     }
 
     save() {
+        if (this.id) { //update 
+            console.log('update branch');
+
+            return db.execute(
+                `UPDATE homes SET houseName =?, price=?, location =?, rating=?, image=?
+                WHERE id=?`,
+                [this.houseName, this.price, this.location, this.rating, this.image, this.id]
+            );
+        } else {
+            console.log('insert branch');
+
+            // NOT USED BCZ OF SQL injection attack
+            // return db.execute(`INSERT INTO homes (houseName, price, location, rating, image, id) VALUES(' ${this.houseName}' ,' ${this.price}' ,' ${this.location}' ,' ${this.rating}' ,' ${this.image}' , ' ${this.id}')`)
+            return db.execute(
+                `INSERT INTO homes (houseName, price, location, rating, image)
+             VALUES (?, ?, ?, ?, ?)`,
+                [
+                    this.houseName,
+                    this.price,
+                    this.location,
+                    this.rating,
+                    this.image
+                ]
+            );
+        }
     }
 
     static fetchAll() {
@@ -18,10 +43,11 @@ module.exports = class Home {
 
     }
 
-    static findById(homeId, callback) {
-
+    static findById(homeId) {
+        return db.execute('SELECT * FROM homes WHERE id = ?', [homeId])
     }
-    static deleteById(homeId, callback) {
+    static deleteById(homeId) {
+        return db.execute('DELETE FROM homes WHERE id = ?', [homeId])
 
     }
 }

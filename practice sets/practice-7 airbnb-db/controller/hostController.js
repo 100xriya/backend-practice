@@ -1,6 +1,7 @@
 const path = require('path');
 const Home = require('../models/home');
 const { ifError } = require('assert');
+const { error } = require('console');
 
 // display the homes in host-home-list
 exports.getHomeList = (req, res, next) => {
@@ -28,20 +29,17 @@ exports.getAddHome = (req, res, next) => {
 
 // return the submitted form response
 exports.postAddHome = (req, res, next) => {
-    console.log(`Home registration successful for:`, req.body, req.body.houseName);
+    console.log(`Home registration successful for:`, req.body.houseName);
     const { houseName, price, location, rating, image } = req.body;
     // Create a Home instance of class Home in ../models/home.js
     const home = new Home(houseName, price, location, rating, image)
-    home.save();
-    /*  registeredHomes.push({
-         houseName: req.body.houseName,
-         location: req.body.location,
-         price: req.body.price,
-         image: req.body.image,
-         rating: req.body.rating
-     }); */
-    // console.log(registeredHomes);
-    res.redirect('/host/host-home-list');
+    home.save().then(() => {
+        res.redirect('/host/host-home-list');
+    })
+        .catch((error) => {
+            console.log("error adding home", error);
+
+        })
 
 }
 
@@ -55,20 +53,24 @@ exports.getEditHome = (req, res, next) => {
     const homeId = req.params.homeId;
     const editing = req.query.editing === "true";
 
-    Home.findById(homeId, home => {
-        if (!home) {
-            console.log("Home not found in list for editing");
-            return res.redirect("/host/host-home-list");
-        }
-        console.log(homeId, editing, home);
-        res.render('host/edit-home', {
-            home: home,
-            editing: editing,
-            homeId: homeId,
+    Home.findById(homeId)
+        .then(([homes]) => {
+            const home = homes[0];
+            if (!home) {
+                console.log("Home not found in list for editing");
+                return res.redirect("/host/host-home-list");
+            }
+            console.log(homeId, editing, home);
+            res.render('host/edit-home', {
+                home: home,
+                editing: editing,
+                homeId: homeId,
+            });
         })
-    })
-
-
+        .catch(error => {
+            console.log("Error fetching home for editing:", error);
+            next(error);
+        });
 }
 
 exports.postEditHome = (req, res, next) => {
@@ -76,20 +78,26 @@ exports.postEditHome = (req, res, next) => {
     const { id, houseName, price, location, rating, image } = req.body;
     // Create a Home instance of class Home in ../models/home.js
     const home = new Home(houseName, price, location, rating, image);
-    home.id = id
-    home.save();
+    home.id = id;
 
-    res.redirect('/host/host-home-list');
+    home.save().then(() => {
+        res.redirect('/host/host-home-list');
+    })
+        .catch((error) => {
+            console.log("error editing home", error);
+        })
+
 }
 
 exports.postDeleteHome = (req, res, next) => {
     const homeId = req.params.homeId;
     console.log('Came to delete, ', homeId);
-    Home.deleteById(homeId, error => {
-        if (error) {
+    Home.deleteById(homeId)
+        .then(() => {
+            res.redirect('/host/host-home-list')
+        })
+        .catch(error => {
             console.log('Error while deleting', error);
-        }
-        res.redirect('/host/host-home-list')
-    })
-
+        })
 }
+
